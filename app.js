@@ -34,7 +34,7 @@ app.get('/download', async (req, res) => {
     if (downloadFormat === 'audio-only') {
       res.setHeader(
         'Content-Disposition',
-        `attachment; filename=${title.substring(0, 40)}.mp3`,
+        `attachment; filename=${title}.mp3`,
       );
       ytdl(URL, {
         filter: format => format.container === 'm4a' && !format.encoding,
@@ -43,7 +43,7 @@ app.get('/download', async (req, res) => {
     } else {
       res.header(
         'Content-Disposition',
-        `attachment; filename="${title.substring(0, 25)}.mp4"`,
+        `attachment; filename="${title}.mp4"`,
       );
       ytdl(URL, {
         filter: downloadFormat === 'video-only' ? 'videoonly' : 'audioandvideo',
