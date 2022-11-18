@@ -48,7 +48,7 @@ $(document).ready(function () {
 
     console.log(beforedate);
 
-    API_KEY = "AIzaSyDz4nTdf-hY6uQZ-Hi_ah762upvqDmmnUI"; // your API key
+    API_KEY = "AIzaSyCuH8NM_lIe5IG8xrM3gOh6QynI-jTGbvk"; // your API key
 
     var url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
         &part=snippet&q=${search}&maxResults=${maxResults}&publishedAfter=${afterdate}&publishedBefore=${beforedate}&order=${order}&videoDuration=${duration}&type=video`;
@@ -126,14 +126,14 @@ $(document).ready(function () {
                     <td>
             
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/${item.id.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    </td>
+                    </td>
                     <td>
-                    <button class="hello" onclick="aaha('https://www.youtube.com/watch?v=${item.id.videoId}')">${item.snippet.title} </button>
-                    
-                    <br>
-                    
-    <input type="text" class="button-convert">
-    <button class="input-url">submit</button>
-                    <span style="font-size:13px">Description: ${item.snippet.description}</span>
+                    <span style="font-size:13px"><b>Title:</b> ${item.snippet.title}</span><br>
+                    <span style="font-size:13px"><b>Description:</b> ${item.snippet.description}</span><br><br>
+                    <a target="_blank" class="btn btn-danger btn-block" href="https://www.youtube.com/watch?v=${item.id.videoId}">Video Link</a>
+
+                    <br><br>
+                    <button class="btn btn-danger btn-block" onclick="aaha('https://www.youtube.com/watch?v=${item.id.videoId}')">Download</button>
                     </td>
                     <td>
                     <a target="_blank" class="btn btn-danger btn-block" href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a>
